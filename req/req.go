@@ -8,10 +8,10 @@ import (
 	"strings"
 )
 
-func Request() {
+func Request(word string) {
 
 	requestURL := "https://cemantix.certitudes.org/score?n=1088"
-	body := strings.NewReader("word=valeur")
+	body := strings.NewReader("word=" + word)
 
 	req, err := http.NewRequest("POST", requestURL, body)
 

@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	req.Request()
+	req.Request("valeur")
 }
