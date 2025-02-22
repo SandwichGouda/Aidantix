@@ -16,7 +16,7 @@ func Request(word string) {
 	req, err := http.NewRequest("POST", requestURL, body)
 
 	if err != nil {
-		fmt.Printf("client: could not create request: %s\n", err)
+		fmt.Printf("Could not create request: %s\n", err)
 		os.Exit(1)
 	}
 
@@ -26,17 +26,17 @@ func Request(word string) {
 	res, err := http.DefaultClient.Do(req)
 
 	if err != nil {
-		fmt.Printf("client: error making http request: %s\n", err)
+		fmt.Printf("Error making http request: %s\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("client: got response!")
-	fmt.Println("client: status code: ", res.StatusCode)
+	// fmt.Println("client: got response!")                 // To be commented when finished
+	// fmt.Println("client: status code: ", res.StatusCode) // To be commented when finished
 
 	resBody, err := io.ReadAll(res.Body)
 	if err != nil {
-		fmt.Printf("client: could not read response body: %s\n", err)
+		fmt.Printf("Could not read response body: %s\n", err)
 		os.Exit(1)
 	}
-	fmt.Printf("client: response body: %s\n", resBody)
+	fmt.Printf("Requested : %s | Response body: %s", word, resBody)
 }
