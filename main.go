@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"aidantix/req"
 )
 
 func main() {
-	fmt.Println("Hey")
+	req.Request()
 }
