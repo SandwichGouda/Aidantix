@@ -1,4 +1,4 @@
-package main
+package db1
 
 import (
 	"encoding/json"
