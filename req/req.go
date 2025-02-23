@@ -68,10 +68,9 @@ func Request(word string, day int) *Response {
 		log.Fatal(err)
 	}
 
-	elem_r, ok_r := preresp["r"]
+	_, ok_r := preresp["r"]
 
 	if ok_r { // The key "r" is in the server's response : The day is wrong
-		elem_r = elem_r
 		log.Fatal("The key 'r') is in the server's response. The request day is likely wrong")
 	}
 

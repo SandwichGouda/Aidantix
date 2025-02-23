@@ -1,6 +1,0 @@
-- Suivre https://go.dev/doc/tutorial/create-module au pied de la lettre pour faire les trucs de versions (et autres trucs sympas => maîtriser le langage)
-- Pour la suite : changer de versions
-- Faire un fonction qui trie l'output results
-- Ajouter d'autres databases
-- Use goroutines to cann the scrapers and retrieve their given values, such that if they encounter an error and exit (log.Fatal(...)), the error gets printed and another method sis used (used defualt scraper, then goquery scraper, then ask user to hardcode the day number) 
-  * Also, GoQuery scraper should not Fatal() (os.exit()) if only one day is retrieved but not the other> -> implement this 

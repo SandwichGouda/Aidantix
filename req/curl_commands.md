@@ -1,3 +1,8 @@
+## Curl commands for requests to cemantix
+
+### Long version
+
+```bash
 curl 'https://cemantix.certitudes.org/score?n=1088' \
   -H 'accept: */*' \
   -H 'accept-language: en-GB,en;q=0.9' \
@@ -15,7 +20,12 @@ curl 'https://cemantix.certitudes.org/score?n=1088' \
   -H 'sec-fetch-site: same-origin' \
   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36' \
   --data-raw 'word=valeur'
+```
 
+### Short version
+
+```bash
 curl 'https://cemantix.certitudes.org/score?n=1088' \
   -H 'origin: https://cemantix.certitudes.org' \
   --data-raw 'word=valeur'
+```
