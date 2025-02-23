@@ -51,7 +51,7 @@ func Request(word string, day int) *Response {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Requested : %s | Response body: %s", word, resBody)
+	// fmt.Printf("Requested : %s | Response body: %s", word, resBody)
 
 	// responses are either of the form :
 	// {"p":214,"s":0.1799,"v":13135} if word is 214th
@@ -77,7 +77,7 @@ func Request(word string, day int) *Response {
 	elem_e, ok_e := preresp["e"]
 
 	if ok_e { // The key "e" is in the server's response : It doesn't know the word
-		fmt.Println("Word", word, "is unknown :", elem_e)
+		// fmt.Println("Word", word, "is unknown :", elem_e)
 		resp = &Response{
 			Word:    word,
 			Rank:    0,
@@ -94,10 +94,10 @@ func Request(word string, day int) *Response {
 		log.Fatal("Score conversion failed. Server's response :", string(resBody))
 	}
 
-	elem_p, ok_p := preresp["p"]
+	_, ok_p := preresp["p"]
 
 	if ok_p { // The key "p" is in the server's response : We hit 1000
-		fmt.Println("Word", word, "hit 1000 ! (", elem_p, ")")
+		// fmt.Println("Word", word, "hit 1000 ! (", elem_p, ")")
 
 		rank, ok_p := preresp["p"].(float64)
 
@@ -115,7 +115,7 @@ func Request(word string, day int) *Response {
 	}
 
 	// Word did not hit 1000, or server responded something else
-	fmt.Println("Word", word, " did not hit 1000")
+	// fmt.Println("Word", word, " did not hit 1000")
 	resp = &Response{
 		Word:    word,
 		Rank:    0,
