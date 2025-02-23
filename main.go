@@ -47,7 +47,7 @@ func real_main() {
 
 func main() {
 
-	day := scrape.ScrapeDay()
+	day := scrape_goquery.ScrapeDay()
 
 	fmt.Println("main : day", day)
 }
