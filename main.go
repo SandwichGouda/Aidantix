@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 )
 
 type Response struct {
@@ -23,7 +24,7 @@ func print_result() {
 	//print result
 }
 
-func main() {
+func main_1() {
 
 	var day int
 
@@ -33,6 +34,7 @@ func main() {
 	}
 
 	day = scrape_goquery.ScrapeDay()
+
 	if day == 0 {
 		fmt.Print("scrape_goquery.ScrapeDay() returned 0. Please type in the puzzle day number : ")
 		reader := bufio.NewReader(os.Stdin)
@@ -50,40 +52,54 @@ func main() {
 		}
 	}
 
-	fmt.Println("main : day", day)
+	fmt.Println(`																 
+																 
+		 █████╗ ██╗██████╗  █████╗ ███╗   ██╗████████╗██╗██╗  ██╗
+		██╔══██╗██║██╔══██╗██╔══██╗████╗  ██║╚══██╔══╝██║╚██╗██╔╝
+		███████║██║██║  ██║███████║██╔██╗ ██║   ██║   ██║ ╚███╔╝ 
+		██╔══██║██║██║  ██║██╔══██║██║╚██╗██║   ██║   ██║ ██╔██╗ 
+		██║  ██║██║██████╔╝██║  ██║██║ ╚████║   ██║   ██║██╔╝ ██╗
+		╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝  ╚═╝
+																 
+																 `)
 
-	fmt.Println(req.Request("valeur", day))
+	fmt.Println("Cémantix : Jour ", day)
 
-	w := readdb.ImportDatabase()
+	database := readdb1.ImportDatabase()
 
-	for i, wd := range w {
-		fmt.Println(i, wd.Label)
+	var response *req.Response
+
+	for i, wd := range database {
+		fmt.Println("Requesting :", wd.Label, "(", i, ")")
+		response = req.Request(wd.Label, day)
+
+		time.Sleep(1000 * time.Millisecond)
 	}
 
 	fmt.Println(w)
 
 }
 
-// func false_main() {
+func false_main() {
 
-// 	w := db1.ImportDatabase()
+	w := readdb1.ImportDatabase()
 
-// 	for i, wd := range w {
-// 		fmt.Println(i, wd.Label)
-// 	}
+	for i, wd := range w {
+		fmt.Println(i, wd.Label)
+	}
 
-// 	fmt.Println(w)
-// }
+	fmt.Println(w)
+}
 
-// func main() {
-// 	fmt.Println(result.InitCSV())
+func false_main_2() {
+	fmt.Println(result.InitCSV())
 
-// 	r := &req.Response{
-// 		Word:    "Cahak",
-// 		Rank:    69,
-// 		Score:   420.69,
-// 		Unknown: false,
-// 	}
+	r := &req.Response{
+		Word:    "Cahak",
+		Rank:    69,
+		Score:   420.69,
+		Unknown: false,
+	}
 
-// 	result.Write(r)
-// }
+	result.Write(r)
+}
