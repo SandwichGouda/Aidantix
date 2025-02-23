@@ -1,8 +1,8 @@
 package main
 
 import (
-	// "aidantix/req"
-	// "aidantix/scrape"
+	"aidantix/req"
+	"aidantix/scrape"
 	"aidantix/scrape_goquery"
 	"fmt"
 )
@@ -14,35 +14,39 @@ type Response struct {
 	Unknown bool
 }
 
-// func (resp Response) Format() string {
-// 	if tmprtr_str, err := strconv.ParseFloat(resp.Temperature, 64); err == nil {
-// 		if resp.Rank == 0 {
-// 			return resp.Word + " - " + tmprtr_str
-// 		}
-// 		return resp.Word + " ! " + string(resp.Rank) + " - " + tmprtr_str
-// 	} else {
-// 		log.Fatal(err)
-// 	}
+func real_main() {
 
-// }
+	var day int
+
+	day = scrape.ScrapeDay()
+	if day == 0 {
+		fmt.Println("scrape.ScrapeDay() returned 0. Moving onto scrape_goquery.ScrapeDay()")
+	}
+
+	day = scrape_goquery.ScrapeDay()
+	if day == 0 {
+		fmt.Println("scrape_goquery.ScrapeDay() returned 0. Please type in the puzzle day number :")
+
+	}
+
+	fmt.Println("main : day", day)
+
+	fmt.Println(req.Request("valeur", day))
+
+	w := db1.ImportDatabase()
+
+	for i, wd := range w {
+		fmt.Println(i, wd.Label)
+	}
+
+	fmt.Println(w)
+
+	db1.Write()
+}
 
 func main() {
-
-	// day := scrape.ScrapeDay()
 
 	day := scrape_goquery.ScrapeDay()
 
 	fmt.Println("main : day", day)
-
-	// fmt.Println(req.Request("valeur", day))
-
-	// w := db1.ImportDatabase()
-
-	// for i, wd := range w {
-	// 	fmt.Println(i, wd.Label)
-	// }
-
-	// fmt.Println(w)
-
-	// db1.Write()
 }
