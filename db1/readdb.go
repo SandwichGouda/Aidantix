@@ -20,7 +20,7 @@ func ImportDatabase() []Word {
 		log.Fatal(err)
 	}
 
-	// db := `[{"Class":"dét.","Frequency":1050561,"Label":"le"},{"Class":"prép.","Frequency":862100,"Label":"de"}]`
+	// testdb := `[{"Class":"dét.","Frequency":1050561,"Label":"le"},{"Class":"prép.","Frequency":862100,"Label":"de"}]`
 	var words []Word
 	if err := json.Unmarshal(db, &words); err != nil {
 		log.Fatal(err)
