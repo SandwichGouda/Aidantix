@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aidantix/db1"
+	"aidantix/readdb"
 	"aidantix/req"
 	"aidantix/scrape"
 	"aidantix/scrape_goquery"
@@ -62,7 +62,11 @@ func real_main() {
 
 func main() {
 
-	day := scrape.ScrapeDay()
+	w := db1.ImportDatabase()
 
-	fmt.Println("main : day", day)
+	for i, wd := range w {
+		fmt.Println(i, wd.Label)
+	}
+
+	fmt.Println(w)
 }
