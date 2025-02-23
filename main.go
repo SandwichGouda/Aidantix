@@ -1,6 +1,7 @@
 package main
 
 import (
+	"aidantix/db1"
 	"aidantix/req"
 	"aidantix/scrape"
 	"aidantix/scrape_goquery"
