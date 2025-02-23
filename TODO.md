@@ -7,3 +7,4 @@
 - Use goroutines to cann the scrapers and retrieve their given values, such that if they encounter an error and exit (`log.Fatal(...)`), the error gets printed and another method is used (use default scraper, then goquery scraper, then ask user to hardcode the day number)
   * Also, GoQuery scraper should not use `Fatal()` (which is equivalent to `fmt.Print()` followed by an `exit()`) if only one day is retrieved but not the other
   * Return `Errors` instead
+- Comment the code more, explaining function roles, block chunks and variable roles
