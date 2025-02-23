@@ -1,8 +1,9 @@
 package main
 
 import (
-	"aidantix/req"
-	"aidantix/scrape"
+	// "aidantix/req"
+	// "aidantix/scrape"
+	"aidantix/scrape_goquery"
 	"fmt"
 )
 
@@ -27,9 +28,13 @@ type Response struct {
 
 func main() {
 
-	day := scrape.ScrapeDay()
+	// day := scrape.ScrapeDay()
 
-	fmt.Println(req.Request("valeur", day))
+	day := scrape_goquery.ScrapeDay()
+
+	fmt.Println("main : day", day)
+
+	// fmt.Println(req.Request("valeur", day))
 
 	// w := db1.ImportDatabase()
 
