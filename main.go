@@ -42,12 +42,12 @@ func real_main() {
 
 	fmt.Println(w)
 
-	db1.Write()
+	// db1.Write()
 }
 
 func main() {
 
-	day := scrape_goquery.ScrapeDay()
+	day := scrape.ScrapeDay()
 
 	fmt.Println("main : day", day)
 }
