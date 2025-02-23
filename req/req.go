@@ -74,7 +74,7 @@ func Request(word string, day int) *Response {
 		log.Fatal("The key 'r') is in the server's response. The request day is likely wrong")
 	}
 
-	elem_e, ok_e := preresp["e"]
+	_, ok_e := preresp["e"]
 
 	if ok_e { // The key "e" is in the server's response : It doesn't know the word
 		// fmt.Println("Word", word, "is unknown :", elem_e)
