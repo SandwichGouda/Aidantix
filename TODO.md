@@ -8,3 +8,4 @@
   * Also, GoQuery scraper should not use `Fatal()` (which is equivalent to `fmt.Print()` followed by an `exit()`) if only one day is retrieved but not the other
   * Return `Errors` instead
 - Comment the code more, explaining function roles, block chunks and variable roles
+- Make two separate outputs `result.csv` and `result_long.csv`, and read from `result_long.csv` to get where to start from
