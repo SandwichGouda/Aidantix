@@ -1,0 +1,4 @@
+- Suivre https://go.dev/doc/tutorial/create-module au pied de la lettre pour faire les trucs de versions (et autres trucs sympas => maîtriser le langage)
+- Pour la suite : changer de versions
+- Faire un fonction qui trie l'output results
+- Ajouter d'autres databases

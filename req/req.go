@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -17,9 +18,11 @@ type Response struct {
 	Unknown bool
 }
 
-func Request(word string) *Response {
+func Request(word string, day int) *Response {
 
-	requestURL := "https://cemantix.certitudes.org/score?n=1089"
+	day_str := strconv.Itoa(day)
+
+	requestURL := "https://cemantix.certitudes.org/score?n=" + day_str
 	body := strings.NewReader("word=" + word)
 
 	req, err := http.NewRequest("POST", requestURL, body)

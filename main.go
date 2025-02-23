@@ -2,6 +2,7 @@ package main
 
 import (
 	"aidantix/req"
+	"aidantix/scrape"
 	"fmt"
 )
 
@@ -26,7 +27,9 @@ type Response struct {
 
 func main() {
 
-	fmt.Println(req.Request("valeur"))
+	day := scrape.ScrapeDay()
+
+	fmt.Println(req.Request("valeur", day))
 
 	// w := db1.ImportDatabase()
 
