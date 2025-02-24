@@ -47,11 +47,25 @@ func main() {
 		day, err = strconv.Atoi(nb)
 
 		for err != nil {
-			fmt.Print("Input convertion to int type failed. Please type in the puzzle day number : ")
+			fmt.Print("Input conversion to int type failed. Please type in the puzzle day number : ")
 			nb, _ = reader.ReadString('\n')
 			nb = nb[:len(nb)-1]
 			day, err = strconv.Atoi(nb)
 		}
+	}
+
+	fmt.Print("How much time should we wait between each request (in milliseconds) ? ")
+	reader := bufio.NewReader(os.Stdin)
+	buff_str, _ := reader.ReadString('\n')
+	buff_str = buff_str[:len(buff_str)-1]
+
+	buff, err := strconv.Atoi(buff_str)
+	for err != nil {
+		fmt.Println("Input conversion to int type failed.")
+		fmt.Println("How much time should we wait between each request (in milliseconds) ? ")
+		buff_str, _ = reader.ReadString('\n')
+		buff_str = buff_str[:len(buff_str)-1]
+		buff, err = strconv.Atoi(buff_str)
 	}
 
 	fmt.Println(`																 
@@ -70,7 +84,7 @@ func main() {
 	database := readdb1.ImportDatabase()
 
 	var response *req.Response
-	fmt.Println(nb_lines)
+	fmt.Printf("%d lines found in result.csv. Reading database from index %d.\n", nb_lines, nb_lines)
 	for i, wd := range database {
 		if i < nb_lines {
 			continue
@@ -79,30 +93,6 @@ func main() {
 		response = req.Request(wd.Label, day)
 		fmt.Println("Response :", *response)
 		result.Write(response)
-		time.Sleep(1000 * time.Millisecond)
+		time.Sleep(time.Duration(buff) * time.Millisecond)
 	}
-}
-
-func false_main() {
-
-	w := readdb1.ImportDatabase()
-
-	for i, wd := range w {
-		fmt.Println(i, wd.Label)
-	}
-
-	fmt.Println(w)
-}
-
-func false_main_2() {
-	fmt.Println(result.InitCSV())
-
-	r := &req.Response{
-		Word:    "Cahak",
-		Rank:    69,
-		Score:   420.69,
-		Unknown: false,
-	}
-
-	result.Write(r)
 }
