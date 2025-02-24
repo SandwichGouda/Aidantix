@@ -24,9 +24,11 @@ func print_result() {
 	//print result
 }
 
-func main_1() {
+func main() {
 
 	var day int
+
+	nb_lines := result.InitCSV()
 
 	day = scrape.ScrapeDay()
 	if day == 0 {
@@ -63,21 +65,22 @@ func main_1() {
 																 
 																 `)
 
-	fmt.Println("Cémantix : Jour ", day)
+	fmt.Println("Cémantix : Jour", day)
 
 	database := readdb1.ImportDatabase()
 
 	var response *req.Response
-
+	fmt.Println(nb_lines)
 	for i, wd := range database {
+		if i < nb_lines {
+			continue
+		}
 		fmt.Println("Requesting :", wd.Label, "(", i, ")")
 		response = req.Request(wd.Label, day)
-
+		fmt.Println("Response :", *response)
+		result.Write(response)
 		time.Sleep(1000 * time.Millisecond)
 	}
-
-	fmt.Println(w)
-
 }
 
 func false_main() {

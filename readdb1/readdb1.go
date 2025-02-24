@@ -14,7 +14,7 @@ type Word struct {
 
 func ImportDatabase() []Word {
 
-	db, err := os.ReadFile("readdb1/database/words_test.json") // returns a []byte
+	db, err := os.ReadFile("readdb1/database/words.json") // returns a []byte
 
 	if err != nil {
 		log.Fatal("readdb1.go : Failed to read database \n", err)
