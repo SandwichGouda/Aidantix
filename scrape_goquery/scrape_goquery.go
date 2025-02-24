@@ -68,9 +68,6 @@ func ScrapeDay() int {
 	default:
 		return *day_1
 	}
-
-	fmt.Println("scrape_goquery.go : exited switch for some reason ; day_1, day_2 =", *day_1, *day_2)
-	return 0
 }
 
 /*
