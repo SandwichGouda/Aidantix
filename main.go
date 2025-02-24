@@ -3,6 +3,7 @@ package main
 import (
 	"aidantix/readdb"
 	"aidantix/req"
+	"aidantix/result"
 	"aidantix/scrape"
 	"aidantix/scrape_goquery"
 	"bufio"
@@ -16,6 +17,10 @@ type Response struct {
 	Rank    int
 	Score   float64
 	Unknown bool
+}
+
+func print_result() {
+	//print result
 }
 
 func real_main() {
@@ -57,10 +62,9 @@ func real_main() {
 
 	fmt.Println(w)
 
-	// db1.Write()
 }
 
-func main() {
+func false_main() {
 
 	w := db1.ImportDatabase()
 
@@ -69,4 +73,17 @@ func main() {
 	}
 
 	fmt.Println(w)
+}
+
+func main() {
+	fmt.Println(result.InitCSV())
+
+	r := &req.Response{
+		Word:    "Cahak",
+		Rank:    69,
+		Score:   420.69,
+		Unknown: false,
+	}
+
+	result.Write(r)
 }
