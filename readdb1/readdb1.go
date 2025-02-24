@@ -1,4 +1,4 @@
-package db1
+package readdb1
 
 import (
 	"encoding/json"

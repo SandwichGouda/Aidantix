@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aidantix/readdb"
+	"aidantix/readdb1"
 	"aidantix/req"
 	"aidantix/result"
 	"aidantix/scrape"
@@ -23,7 +23,7 @@ func print_result() {
 	//print result
 }
 
-func real_main() {
+func main() {
 
 	var day int
 
@@ -54,7 +54,7 @@ func real_main() {
 
 	fmt.Println(req.Request("valeur", day))
 
-	w := db1.ImportDatabase()
+	w := readdb.ImportDatabase()
 
 	for i, wd := range w {
 		fmt.Println(i, wd.Label)
@@ -64,26 +64,26 @@ func real_main() {
 
 }
 
-func false_main() {
+// func false_main() {
 
-	w := db1.ImportDatabase()
+// 	w := db1.ImportDatabase()
 
-	for i, wd := range w {
-		fmt.Println(i, wd.Label)
-	}
+// 	for i, wd := range w {
+// 		fmt.Println(i, wd.Label)
+// 	}
 
-	fmt.Println(w)
-}
+// 	fmt.Println(w)
+// }
 
-func main() {
-	fmt.Println(result.InitCSV())
+// func main() {
+// 	fmt.Println(result.InitCSV())
 
-	r := &req.Response{
-		Word:    "Cahak",
-		Rank:    69,
-		Score:   420.69,
-		Unknown: false,
-	}
+// 	r := &req.Response{
+// 		Word:    "Cahak",
+// 		Rank:    69,
+// 		Score:   420.69,
+// 		Unknown: false,
+// 	}
 
-	result.Write(r)
-}
+// 	result.Write(r)
+// }
