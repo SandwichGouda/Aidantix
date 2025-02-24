@@ -1,4 +1,4 @@
-package db1
+package result
 
 import (
 	"fmt"
@@ -17,7 +17,7 @@ func Write(resp Response) {
 
 	// err := os.WriteFile("db1/result", []byte("hello\ngo\n"), 0666)
 
-	f, err := os.OpenFile("db1/result", os.O_APPEND|os.O_WRONLY, os.ModeAppend)
+	f, err := os.OpenFile("result/result.csv", os.O_APPEND|os.O_WRONLY, os.ModeAppend)
 
 	if err != nil {
 		log.Fatal(err)
