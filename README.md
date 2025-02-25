@@ -4,13 +4,17 @@ Un coup de pouce pour le Cémantix.
 
 ## Installation and usage
 
-1. Build (`go build main.go`) and run (`./main`)
+1. Get [Go](https://go.dev). `[packagemanager] install go` should work. Othervise, visit https://go.dev
 
-2. Enter the requested time buff between requests (to avoid DoS ban), for instance `1000` milliseconds.
+2. Build (`go build main.go`) and run (`./main`).
 
-3. Let him cook.
+3. Enter the requested time buff between requests (to avoid DoS ban), for instance `1000` milliseconds.
 
-4. The results are dumped in in `result.csv`.
+4. Answer the prompt asking if you want verbose or non-verbose mode. With verbose mode turned on, all requests and requests answers will be printed to standard output. Without, the command prompt will shut up and work silently.
+
+5. Let him cook.
+
+6. The results are dumped in in `result.csv`.
 
 ```csv
 Word,Rank,Score
