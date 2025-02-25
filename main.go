@@ -2,6 +2,7 @@ package main
 
 import (
 	"aidantix/readdb1"
+	// "aidantix/readdb2"
 	"aidantix/req"
 	"aidantix/result"
 	"aidantix/scrape"
@@ -93,21 +94,21 @@ func main() {
 
 	fmt.Println("Cémantix : Jour", day)
 
-	database := readdb1.ImportDatabase()
-
 	var response *req.Response
 	if verbose {
 		fmt.Printf("%d lines found in result.csv. Reading database from index %d.\n", nb_lines, nb_lines)
 	}
 
-	for i, wd := range database {
+	database1 := readdb1.ImportDatabase()
+
+	for i, wd := range database1 {
 		if i < nb_lines {
 			continue
 		}
 		if verbose {
-			fmt.Printf("Requesting : %s (%d)\n", wd.Label, i)
+			fmt.Printf("Requesting : %s (%d)\n", wd, i)
 		}
-		response = req.Request(wd.Label, day)
+		response = req.Request(wd, day)
 		if verbose {
 			fmt.Println("Response :", *response)
 		}
@@ -116,4 +117,27 @@ func main() {
 		}
 		time.Sleep(time.Duration(buff) * time.Millisecond)
 	}
+
+	/*
+	database2 := readdb2.ImportDatabase()
+
+	for i, wd := range database2 {
+		if i < nb_lines {
+			continue
+		}
+		if verbose {
+			// fmt.Printf("Requesting : %s (%d)\n", wd, i)
+			fmt.Println("Requesting :",wd,"(",i)
+		}
+		response = req.Request(wd, day)
+		if verbose {
+			fmt.Println("Response :", *response)
+		}
+		if !response.Unknown && response.Rank > 0 {
+			result.Write(response)
+		}
+		time.Sleep(time.Duration(buff) * time.Millisecond)
+	}
+	fmt.Println("Done.")
+	*/
 }

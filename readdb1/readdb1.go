@@ -12,7 +12,7 @@ type Word struct {
 	Label     string
 }
 
-func ImportDatabase() []Word {
+func ImportDatabase() []string {
 
 	db, err := os.ReadFile("readdb1/database/words.json") // returns a []byte
 
@@ -26,5 +26,11 @@ func ImportDatabase() []Word {
 		log.Fatal("readdb1.go : Failed to unmarshal database \n", err)
 	}
 
-	return words
+	words_str := make([]string, len(words), len(words))
+
+	for i,w := range words {
+		words_str[i] = w.Label
+	}
+
+	return words_str
 }
