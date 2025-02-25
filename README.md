@@ -4,7 +4,7 @@ Un coup de pouce pour le Cémantix.
 
 ## Installation and usage
 
-1. Build using `go build main.go`.
+1. Build (`go build main.go`) and run (`./main`)
 
 2. Enter the requested time buff between requests (to avoid DoS ban), for instance `1000` milliseconds.
 
