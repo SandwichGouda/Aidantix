@@ -4,7 +4,7 @@ Un coup de pouce pour le Cémantix.
 
 ## Installation and usage
 
-1. Get [Go](https://go.dev). `[packagemanager] install go` should work. Othervise, visit https://go.dev
+1. Get [Go](https://go.dev). `[packagemanager] install go` should work. Othervise, visit https://go.dev.
 
 2. Build (`go build main.go`) and run (`./main`).
 
