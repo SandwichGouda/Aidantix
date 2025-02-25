@@ -68,6 +68,18 @@ func main() {
 		buff, err = strconv.Atoi(buff_str)
 	}
 
+	fmt.Print("Run in verbose mode ? (y/N)")
+	reader = bufio.NewReader(os.Stdin)
+	answer, _ := reader.ReadString('\n')
+	answer = answer[:len(answer)-1]
+	for answer != "n" && answer != "N" && answer != "y" && answer != "Y" && answer != "" {
+		fmt.Print("Please type either 'y' or 'n'.")
+		answer, _ = reader.ReadString('\n')
+		answer = answer[:len(answer)-1]
+	}
+
+	verbose := answer == "y" || answer == "Y"
+
 	fmt.Println(`																 
 																 
 		 █████╗ ██╗██████╗  █████╗ ███╗   ██╗████████╗██╗██╗  ██╗
@@ -84,14 +96,21 @@ func main() {
 	database := readdb1.ImportDatabase()
 
 	var response *req.Response
-	fmt.Printf("%d lines found in result.csv. Reading database from index %d.\n", nb_lines, nb_lines)
+	if verbose {
+		fmt.Printf("%d lines found in result.csv. Reading database from index %d.\n", nb_lines, nb_lines)
+	}
+
 	for i, wd := range database {
 		if i < nb_lines {
 			continue
 		}
-		fmt.Println("Requesting :", wd.Label, "(", i, ")")
+		if verbose {
+			fmt.Printf("Requesting : %s (%d)\n", wd.Label, i)
+		}
 		response = req.Request(wd.Label, day)
-		fmt.Println("Response :", *response)
+		if verbose {
+			fmt.Println("Response :", *response)
+		}
 		if !response.Unknown && response.Rank > 0 {
 			result.Write(response)
 		}
