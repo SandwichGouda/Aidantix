@@ -92,7 +92,7 @@ func main() {
 		fmt.Println("Requesting :", wd.Label, "(", i, ")")
 		response = req.Request(wd.Label, day)
 		fmt.Println("Response :", *response)
-		if !response.Unknown {
+		if !response.Unknown && response.Rank > 0 {
 			result.Write(response)
 		}
 		time.Sleep(time.Duration(buff) * time.Millisecond)
