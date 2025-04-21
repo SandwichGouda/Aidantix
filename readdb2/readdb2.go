@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 	"strings"
-	"fmt"
+	// "fmt"
 )
 
 func ImportDatabase() []string {
