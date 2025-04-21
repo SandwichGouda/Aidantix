@@ -1,4 +1,4 @@
-package main
+package readdb2
 
 import (
 	"log"
@@ -7,24 +7,21 @@ import (
 	"fmt"
 )
 
-type Word struct {
-	Class     string
-	Frequency int
-	Label     string
-}
-
 func ImportDatabase() []string {
 
-	// db, err := os.ReadFile("readdb2/database/scraped_words.csv") // returns a []byte
-	db, err := os.ReadFile("database/scraped_words.csv") // returns a []byte
+	db, err := os.ReadFile("readdb2/database/words.csv") // returns a []byte
 
 	if err != nil {
 		log.Fatal("readdb2.go : Failed to read database \n", err)
 	}
+ 
+	str_db_with_freq := strings.Split(string(db),"\n")
 	
-	return strings.Split(string(db),"\n")
-}
+	str_db := make([]string,10000)
 
-func main() {
-	fmt.Println(ImportDatabase()[:10])
+	for i,wd := range str_db_with_freq {
+		str_db[i] = strings.Split(wd,",")[1]
+	}
+
+	return str_db
 }

@@ -2,7 +2,7 @@ package main
 
 import (
 	"aidantix/readdb1"
-	// "aidantix/readdb2"
+	"aidantix/readdb2"
 	"aidantix/req"
 	"aidantix/result"
 	"aidantix/scrape"
@@ -19,10 +19,6 @@ type Response struct {
 	Rank    int
 	Score   float64
 	Unknown bool
-}
-
-func print_result() {
-	//print result
 }
 
 func main() {
@@ -99,7 +95,7 @@ func main() {
 		fmt.Printf("%d lines found in result.csv. Reading database from index %d.\n", nb_lines, nb_lines)
 	}
 
-	database1 := readdb1.ImportDatabase()
+	database1 := readdb2.ImportDatabase()
 
 	for i, wd := range database1 {
 		if i < nb_lines {
@@ -126,7 +122,6 @@ func main() {
 			continue
 		}
 		if verbose {
-			// fmt.Printf("Requesting : %s (%d)\n", wd, i)
 			fmt.Println("Requesting :",wd,"(",i)
 		}
 		response = req.Request(wd, day)
@@ -138,6 +133,7 @@ func main() {
 		}
 		time.Sleep(time.Duration(buff) * time.Millisecond)
 	}
-	fmt.Println("Done.")
 	*/
+
+	fmt.Println("Done.")
 }
