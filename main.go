@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aidantix/readdb1"
+	// "aidantix/readdb1"
 	"aidantix/readdb2"
 	"aidantix/req"
 	"aidantix/result"
