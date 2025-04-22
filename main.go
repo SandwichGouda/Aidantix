@@ -102,9 +102,6 @@ func main() {
 			continue
 		}
 		if verbose {
-			w := string(wd)
-			fmt.Println("fave",w,len(w))
-			fmt.Println(i)
 			fmt.Printf("Requesting : %s (%d)\n", wd, i)
 		}
 		response = req.Request(wd, day)

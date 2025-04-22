@@ -21,9 +21,5 @@ func ImportDatabase() []string {
 		strdb[i] = wd[:len(wd)-1]
 	}
 
-	fmt.Println("Words :",strdb[0],strdb[1],strdb[2])
-
-	fmt.Println("Bytes :",[]byte(strdb[0]),[]byte(strdb[1]),[]byte(strdb[2]))
-
 	return strdb
 }
