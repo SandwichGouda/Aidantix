@@ -18,23 +18,19 @@ func FileExists(filename string) bool {
 }
 
 func CountLines(filename string) (int, error) {
-	// Open the file
 	file, err := os.Open(filename)
 	if err != nil {
 		return 0, err
 	}
 	defer file.Close()
 
-	// Create a scanner to read the file line by line
 	scanner := bufio.NewScanner(file)
 	lineCount := 0
 
-	// Loop through each line
 	for scanner.Scan() {
 		lineCount++
 	}
 
-	// Check for errors during scanning
 	if err := scanner.Err(); err != nil {
 		return 0, err
 	}
@@ -84,9 +80,8 @@ func InitCSV() int {
 
 func Write(resp *req.Response) {
 
-	// err := os.WriteFile("db1/result", []byte("hello\ngo\n"), 0666)
-
 	f, err := os.OpenFile("result.csv", os.O_APPEND|os.O_WRONLY, os.ModeAppend)
+	
 	if err != nil {
 		log.Fatal("Error opening result.csv :", err)
 	}
@@ -98,16 +93,5 @@ func Write(resp *req.Response) {
 		f.Close()
 		log.Fatal("Error appending data to result.csv :", err)
 	}
-
-	// d2 := []byte{115, 111, 109, 101, 10}
-	// n2, err := f.Write(d2)
-	// check(err)
-	// fmt.Printf("wrote %d bytes\n", n2)
-
-	// n3, err := f.WriteString("writes\n")
-	// check(err)
-	// fmt.Printf("wrote %d bytes\n", n3)
-
-	// f.Sync()
 
 }

@@ -91,10 +91,11 @@ func main() {
 	fmt.Println("Cémantix : Jour", day)
 
 	var response *req.Response
-	if verbose {
-		fmt.Printf("%d lines found in result.csv. Reading database from index %d.\n", nb_lines, nb_lines)
-	}
-
+	fmt.Printf("%d lines found in result.csv. Reading database from index %d.\n", nb_lines, nb_lines)
+	// REMARK : we only dump words that hit with positive rank. 
+	// So, this index will not at all be the one that we "should" start at 
+	// (it'll be much lower since it doesn't take into account words that did not "hit"
+	
 	database1 := readdb2.ImportDatabase()
 
 	for i, wd := range database1 {
