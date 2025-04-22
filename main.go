@@ -102,11 +102,14 @@ func main() {
 			continue
 		}
 		if verbose {
+			w := string(wd)
+			fmt.Println("fave",w,len(w))
+			fmt.Println(i)
 			fmt.Printf("Requesting : %s (%d)\n", wd, i)
 		}
 		response = req.Request(wd, day)
 		if verbose {
-			fmt.Println("Response :", *response)
+			fmt.Println("Response :", response.Word, response.Rank, response.Score)
 		}
 		if !response.Unknown && response.Rank > 0 {
 			result.Write(response)
